@@ -29,8 +29,7 @@ article{
  img {
     height: 150px;
     object-fit: contain;
-    padding: 5px;
-    background-color: antiquewhite;
+
 }
 .selected {
     border: 5px solid lightgreen;

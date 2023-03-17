@@ -17,7 +17,6 @@ function init() {
   const JOBB_GOMB = document.querySelector(".jobb");
   BAL_GOMB.addEventListener("click", vissza_lep);
   JOBB_GOMB.addEventListener("click", elore_lep);
-  
 
   const KISKEP = document.querySelectorAll("article img");
   console.log(KISKEP);
@@ -34,6 +33,7 @@ function init() {
       currentindex = 0;
       NAGY_KEP.src = KEPEK[currentindex];
     }
+    kisKepKiemel() 
   }
   function vissza_lep() {
     if (currentindex > 0) {
@@ -42,25 +42,27 @@ function init() {
     } else if (currentindex == 0) {
       currentindex = KEPEK.length - 1;
       NAGY_KEP.src = KEPEK[currentindex];
+      kisKepKiemel() 
     }
   }
-  function osszehasonlit() {
-    const KISKEP = document.querySelectorAll("article img");
-    KISKEP.forEach((img) => {
-      if (img === selectedImg) {
-        img.classList.add("selected");
-      } else {
-        img.classList.remove("selected");
-      }
-    });
-  }
-}
+  function kisKepKiemel() {
+    const nagyKepImg = document.querySelector(".nagykep img");
+    const kisKepImgs = document.querySelectorAll("article img");
 
-function kattintasKezelo(event) {
-  const NAGY_KEP = document.querySelectorAll("section div img");
-  console.log(NAGY_KEP);
-  NAGY_KEP[0].src = event.target.src;
-  console.log(event.target);
-  console.log(event.target.src);
-  osszehasonlit(event.target)
+    for (let i = 0; i < kisKepImgs.length; i++) {
+      if (kisKepImgs[i].src === nagyKepImg.src) {
+        kisKepImgs[i].style.border = "5px solid lightgreen";
+      } else {
+        kisKepImgs[i].style.border = "none";
+      }
+    }
+  }
+  function kattintasKezelo(event) {
+    const NAGY_KEP = document.querySelectorAll("section div img");
+    console.log(NAGY_KEP);
+    NAGY_KEP[0].src = event.target.src;
+    console.log(event.target);
+    console.log(event.target.src);
+    kisKepKiemel() ;
+  }
 }

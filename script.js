@@ -33,7 +33,7 @@ function init() {
       currentindex = 0;
       NAGY_KEP.src = KEPEK[currentindex];
     }
-    kisKepKiemel() 
+    kisKepKiemel();
   }
   function vissza_lep() {
     if (currentindex > 0) {
@@ -42,8 +42,8 @@ function init() {
     } else if (currentindex == 0) {
       currentindex = KEPEK.length - 1;
       NAGY_KEP.src = KEPEK[currentindex];
-      kisKepKiemel() 
     }
+    kisKepKiemel();
   }
   function kisKepKiemel() {
     const nagyKepImg = document.querySelector(".nagykep img");
@@ -63,6 +63,6 @@ function init() {
     NAGY_KEP[0].src = event.target.src;
     console.log(event.target);
     console.log(event.target.src);
-    kisKepKiemel() ;
+    kisKepKiemel();
   }
 }
